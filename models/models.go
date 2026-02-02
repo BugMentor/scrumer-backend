@@ -11,14 +11,14 @@ type User struct {
 	Username string `gorm:"uniqueIndex;not null"`
 	Email    string `gorm:"uniqueIndex;not null"`
 	Password string `gorm:"not null"`
-	// Projects []Project `gorm:"many2many:user_projects;"`
+	Projects []Project `gorm:"many2many:user_projects;"`
 }
 
 type Project struct {
 	gorm.Model
 	Name        string `gorm:"uniqueIndex;not null"`
 	Description string
-	// Users       []User `gorm:"many2many:user_projects;"`
+	Users       []User `gorm:"many2many:user_projects;"`
 	Sprints     []Sprint
 }
 
